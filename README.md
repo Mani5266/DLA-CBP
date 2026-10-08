@@ -7,8 +7,9 @@ Theory 22PC1DS402 · Lab 22PC2DS402 · Deep Learning Applications ·
 B.Tech Data Science (Final Year)
 
 > Every number in this README is measured in this build and traces to
-> `outputs/results.json`, `outputs/experiments.csv`, or a log/figure in
-> `outputs/`. Nothing is copied from blogs or papers.
+> `music-generation-char-rnn/outputs/results.json`,
+> `music-generation-char-rnn/outputs/experiments.csv`, or a log/figure in
+> `music-generation-char-rnn/outputs/`. Nothing is copied from blogs or papers.
 
 ## Problem
 
@@ -27,7 +28,7 @@ multiclass classification problem at every step (Softmax + cross-entropy)
 Public-domain traditional folk tunes (reels, jigs, hornpipes, waltzes) in
 plain-text abc (~5 MB). Used the cleaned mirror
 `github.com/jukedeck/nottingham-dataset` (`ABC_cleaned/`, 14 files),
-vendored under `data/raw/`. No other data used anywhere.
+vendored under `music-generation-char-rnn/data/raw/`. No other data used.
 
 | Statistic (measured) | Value |
 |---|---|
@@ -41,8 +42,8 @@ vendored under `data/raw/`. No other data used anywhere.
 | Meters | 4/4: 548, 6/8: 360, 3/4: 60, 2/4: 41, 9/8: 13, 2/2: 7, 3/2: 3, 6/4: 2 |
 | Keys | G: 361, D: 358, A: 125, C: 54, Am: 39, Em: 29, F: 25, … |
 
-EDA figures: `outputs/figures/` (`char_dist`, `meter_dist`, `key_dist`,
-`tune_lengths`).
+EDA figures: `music-generation-char-rnn/outputs/figures/` (`char_dist`,
+`meter_dist`, `key_dist`, `tune_lengths`).
 
 ## Architecture
 
@@ -73,9 +74,10 @@ was built in PyTorch 2.1+cu121 to use the RTX 3050 (E12 measures ~14× vs CPU).
 | Batch / time | 64 / ~20 s·epoch⁻¹ | 128 / ~40 s·epoch⁻¹ (~13 min total, RTX 3050) |
 | Val result | acc 0.585, ppl 3.7 | **loss 1.049, acc 0.675, ppl 2.85** (train 0.635/0.783/1.89) |
 
-Best-on-val-loss checkpoint: `outputs/checkpoints/main_full.pt`. Curves:
-`outputs/figures/curves_main_full.png` (plotted from saved history).
-The main model beats all three baselines (0.675 > 0.543 > 0.521 > 0.155).
+Best-on-val-loss checkpoint: `music-generation-char-rnn/outputs/checkpoints/main_full.pt`.
+Curves: `music-generation-char-rnn/outputs/figures/curves_main_full.png`
+(plotted from saved history). The main model beats all three baselines
+(0.675 > 0.543 > 0.521 > 0.155).
 
 ## Results — baselines
 
@@ -88,7 +90,8 @@ The main model beats all three baselines (0.675 > 0.543 > 0.521 > 0.155).
 
 ## Results — experiments E1–E12 (reduced budget: 15% data / 8 epochs)
 
-Full table: `outputs/experiments.csv`. One variable changed per run.
+Full table: `music-generation-char-rnn/outputs/experiments.csv`. One variable
+changed per run.
 
 | ID | Variable | Outcome (val acc) | Takeaway |
 |---|---|---|---|
@@ -115,16 +118,17 @@ Autoregressive sampling (real header + fragment seed, stop at corpus-style
 - Validator rule is corpus-measured: repeats valid iff openers ≤ closers
   (584/930 train tunes have *more* closers — repeat-from-start convention)
 - **Originality 28/28** (exact-match vs training tunes)
-- **28 triplets** in `outputs/generated/` (24 main + 3 variant samples +
-  tabla sketch), each `.abc + .mid + .wav`, WAVs asserted non-silent.
-  Featured: `gen_T0.6_0` (G/4/4), `gen_T0.8_0` (D/4/4), `gen_T1.0_0`
-  (D/6/8), `gen_T1.2_0` (G/4/4), `gen_tabla_01` (rhythm-conditioned
-  extension demo — abc has no timbre/bols, so this is explicitly **not**
-  a tabla model)
+- **28 triplets** in `music-generation-char-rnn/outputs/generated/` (24 main
+  + 3 variant samples + tabla sketch), each `.abc + .mid + .wav`, WAVs
+  asserted non-silent. Featured: `gen_T0.6_0` (G/4/4), `gen_T0.8_0` (D/4/4),
+  `gen_T1.0_0` (D/6/8), `gen_T1.2_0` (G/4/4), `gen_tabla_01`
+  (rhythm-conditioned extension demo — abc has no timbre/bols, so this is
+  explicitly **not** a tabla model)
 
 ## How to run
 
 ```bat
+cd music-generation-char-rnn
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
@@ -145,11 +149,12 @@ checkout (smoke scale; logged in `outputs/phase_log.md`).
 ## Layout
 
 ```
-data/raw/  data/processed/  (corpus.txt, train/val.txt, vocab.json, sequences_meta.json)
-src/  data_prep.py  model.py  train.py  generate.py  convert.py  evaluate.py  common.py
-experiments/  run_all.py + per-topic notes
-outputs/  results.json  experiments.csv  phase_log.md  logs/  figures/  generated/  checkpoints/
-report/  report.md (full report + viva sheet)  failure_gallery.abc/.txt
+music-generation-char-rnn/
+  data/raw/  data/processed/  (corpus.txt, train/val.txt, vocab.json, sequences_meta.json)
+  src/  data_prep.py  model.py  train.py  generate.py  convert.py  evaluate.py  common.py
+  experiments/  run_all.py + per-topic notes
+  outputs/  results.json  experiments.csv  phase_log.md  logs/  figures/  generated/  checkpoints/
+  report/  report.md (full report + viva sheet)  failure_gallery.abc/.txt
 ```
 
 ## Limitations
