@@ -1,0 +1,4 @@
+smoke checkpoint (5 epochs, 15% data), temperature=1.0, seed=train tune #3
+valid=True
+reasons=[]
+chars=218

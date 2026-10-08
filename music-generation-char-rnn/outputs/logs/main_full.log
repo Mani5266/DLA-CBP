@@ -1,0 +1,22 @@
+[main_full] device=cuda params=1623126 train_win=144162 val_win=17207 cfg={'subset': 1.0, 'epochs': 60, 'batch': 128, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 8}
+[main_full] ep1/60 39s loss=1.286 acc=0.584 ppl=3.6 | val_loss=1.333 val_acc=0.569 val_ppl=3.8
+[main_full] ep2/60 39s loss=1.141 acc=0.621 ppl=3.1 | val_loss=1.199 val_acc=0.604 val_ppl=3.3
+[main_full] ep3/60 40s loss=1.062 acc=0.644 ppl=2.9 | val_loss=1.137 val_acc=0.620 val_ppl=3.1
+[main_full] ep4/60 41s loss=1.003 acc=0.666 ppl=2.7 | val_loss=1.095 val_acc=0.642 val_ppl=3.0
+[main_full] ep5/60 41s loss=0.959 acc=0.680 ppl=2.6 | val_loss=1.061 val_acc=0.650 val_ppl=2.9
+[main_full] ep6/60 41s loss=0.919 acc=0.690 ppl=2.5 | val_loss=1.038 val_acc=0.661 val_ppl=2.8
+[main_full] ep7/60 42s loss=0.885 acc=0.701 ppl=2.4 | val_loss=1.025 val_acc=0.664 val_ppl=2.8
+[main_full] ep8/60 42s loss=0.852 acc=0.714 ppl=2.3 | val_loss=1.012 val_acc=0.670 val_ppl=2.8
+[main_full] ep9/60 43s loss=0.824 acc=0.722 ppl=2.3 | val_loss=1.006 val_acc=0.670 val_ppl=2.7
+[main_full] ep10/60 42s loss=0.805 acc=0.726 ppl=2.2 | val_loss=1.008 val_acc=0.674 val_ppl=2.7
+[main_full] ep11/60 42s loss=0.783 acc=0.735 ppl=2.2 | val_loss=0.999 val_acc=0.671 val_ppl=2.7
+[main_full] ep12/60 42s loss=0.761 acc=0.739 ppl=2.1 | val_loss=1.008 val_acc=0.673 val_ppl=2.7
+[main_full] ep13/60 43s loss=0.737 acc=0.747 ppl=2.1 | val_loss=1.008 val_acc=0.677 val_ppl=2.7
+[main_full] ep14/60 42s loss=0.724 acc=0.752 ppl=2.1 | val_loss=1.011 val_acc=0.675 val_ppl=2.7
+[main_full] ep15/60 43s loss=0.705 acc=0.759 ppl=2.0 | val_loss=1.025 val_acc=0.672 val_ppl=2.8
+[main_full] ep16/60 43s loss=0.681 acc=0.766 ppl=2.0 | val_loss=1.021 val_acc=0.677 val_ppl=2.8
+[main_full] ep17/60 42s loss=0.670 acc=0.770 ppl=2.0 | val_loss=1.040 val_acc=0.670 val_ppl=2.8
+[main_full] ep18/60 41s loss=0.648 acc=0.777 ppl=1.9 | val_loss=1.051 val_acc=0.672 val_ppl=2.9
+[main_full] ep19/60 41s loss=0.635 acc=0.783 ppl=1.9 | val_loss=1.049 val_acc=0.675 val_ppl=2.9
+[main_full] early stop at ep19
+[main_full] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\main_full.pt + results.json. DONE

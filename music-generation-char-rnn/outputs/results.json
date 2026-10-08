@@ -1,0 +1,1434 @@
+{
+ "project": "Music Generation Using Char-RNN",
+ "seed": 42,
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.1.0+cu121",
+  "local": {
+   "os": "Windows",
+   "gpu_visible": true,
+   "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "note": "PyTorch+CUDA used: TF 2.11+ has no native-Windows GPU (last GPU build TF 2.10, py<=3.10); same Char-RNN maths."
+ },
+ "dataset": {
+  "name": "Nottingham Music Database",
+  "source_used": "github.com/jukedeck/nottingham-dataset (cleaned)",
+  "license": "public domain folk tunes",
+  "tunes_total": 1034,
+  "tunes_train": 930,
+  "tunes_val": 104,
+  "chars_total": 390475,
+  "vocab_size": 86,
+  "vocab": "\n !\"#&'()+,-./0123456789:=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_abcdefghijklmnopqrstuvwxyz|~",
+  "top_chars": [
+   [
+    "\"",
+    54138
+   ],
+   [
+    "2",
+    44820
+   ],
+   [
+    "/",
+    38346
+   ],
+   [
+    "|",
+    24018
+   ],
+   [
+    " ",
+    22205
+   ],
+   [
+    "A",
+    20089
+   ],
+   [
+    "G",
+    15570
+   ],
+   [
+    "d",
+    15560
+   ],
+   [
+    "B",
+    14754
+   ],
+   [
+    "\n",
+    13428
+   ]
+  ],
+  "meters": {
+   "4/4": 548,
+   "6/8": 360,
+   "3/4": 60,
+   "2/4": 41,
+   "9/8": 13,
+   "2/2": 7,
+   "3/2": 3,
+   "6/4": 2
+  },
+  "keys": {
+   "G": 361,
+   "D": 358,
+   "A": 125,
+   "C": 54,
+   "Am": 39,
+   "Em": 29,
+   "F": 25,
+   "Dm": 14,
+   "Bb": 12,
+   "Gm": 11
+  },
+  "note_letters": {
+   "A": 20089,
+   "a": 4982,
+   "d": 15560,
+   "G": 15570,
+   "e": 13322,
+   "B": 14754,
+   "D": 11108,
+   "c": 11676,
+   "F": 5963,
+   "C": 3032,
+   "g": 6898,
+   "b": 1512,
+   "f": 8729,
+   "E": 6465
+  },
+  "mean_tune_len": 375.6353965183752,
+  "eda_date": "2026-10-08"
+ },
+ "main_model": {
+  "config": {
+   "seq_len": 64,
+   "embedding_dim": 256,
+   "lstm_units": [
+    256,
+    256,
+    256
+   ],
+   "dropout": 0.3,
+   "batch_size": 128,
+   "epochs_planned": 60,
+   "epochs_run": 19,
+   "stride": 2,
+   "optimizer": "adam",
+   "lr": 0.003
+  },
+  "train": {
+   "loss": 0.6350630807182973,
+   "accuracy": 0.7830426880911477,
+   "perplexity": 1.8871411799253404
+  },
+  "val": {
+   "loss": 1.0488301051302444,
+   "accuracy": 0.6748997500358872,
+   "perplexity": 2.854309921486036
+  }
+ },
+ "baselines": {
+  "most_frequent": {
+   "accuracy": 0.15516890220838547,
+   "loss": 7.645440421453333,
+   "perplexity": 2091.089333661891,
+   "status": "done"
+  },
+  "ngram": {
+   "accuracy": 0.5205708250435979,
+   "loss": 1.8089371773063412,
+   "perplexity": 6.103956559965401,
+   "order": 4,
+   "status": "done"
+  },
+  "simple_rnn": {
+   "loss": 1.5233718273550585,
+   "accuracy": 0.5431510431766371,
+   "perplexity": 4.587667969682422,
+   "status": "done",
+   "params": 41430
+  }
+ },
+ "generation": {
+  "attempts": 24,
+  "valid": 24,
+  "valid_raw": 19,
+  "valid_repaired": 5,
+  "validity_rate": 1.0,
+  "temperatures": [
+   0.6,
+   0.8,
+   1.0,
+   1.2
+  ],
+  "delivered_tunes": [
+   {
+    "file": "gen_T0.6_0.abc",
+    "temperature": 0.6,
+    "status": "raw",
+    "chars": 475
+   },
+   {
+    "file": "gen_T0.6_1.abc",
+    "temperature": 0.6,
+    "status": "raw",
+    "chars": 336
+   },
+   {
+    "file": "gen_T0.6_2.abc",
+    "temperature": 0.6,
+    "status": "raw",
+    "chars": 212
+   },
+   {
+    "file": "gen_T0.6_3.abc",
+    "temperature": 0.6,
+    "status": "raw",
+    "chars": 264
+   },
+   {
+    "file": "gen_T0.6_4.abc",
+    "temperature": 0.6,
+    "status": "raw",
+    "chars": 349
+   },
+   {
+    "file": "gen_T0.6_5.abc",
+    "temperature": 0.6,
+    "status": "raw",
+    "chars": 192
+   },
+   {
+    "file": "gen_T0.8_0.abc",
+    "temperature": 0.8,
+    "status": "repaired:dropped dangling repeat opener+appended final bar",
+    "chars": 802
+   },
+   {
+    "file": "gen_T0.8_1.abc",
+    "temperature": 0.8,
+    "status": "repaired:dropped dangling repeat opener",
+    "chars": 151
+   },
+   {
+    "file": "gen_T0.8_2.abc",
+    "temperature": 0.8,
+    "status": "raw",
+    "chars": 193
+   },
+   {
+    "file": "gen_T0.8_3.abc",
+    "temperature": 0.8,
+    "status": "repaired:appended final bar",
+    "chars": 803
+   },
+   {
+    "file": "gen_T0.8_4.abc",
+    "temperature": 0.8,
+    "status": "raw",
+    "chars": 736
+   },
+   {
+    "file": "gen_T0.8_5.abc",
+    "temperature": 0.8,
+    "status": "raw",
+    "chars": 658
+   },
+   {
+    "file": "gen_T1.0_0.abc",
+    "temperature": 1.0,
+    "status": "raw",
+    "chars": 494
+   },
+   {
+    "file": "gen_T1.0_1.abc",
+    "temperature": 1.0,
+    "status": "raw",
+    "chars": 367
+   },
+   {
+    "file": "gen_T1.0_2.abc",
+    "temperature": 1.0,
+    "status": "repaired:dropped dangling repeat opener+appended final bar",
+    "chars": 801
+   },
+   {
+    "file": "gen_T1.0_3.abc",
+    "temperature": 1.0,
+    "status": "raw",
+    "chars": 135
+   },
+   {
+    "file": "gen_T1.0_4.abc",
+    "temperature": 1.0,
+    "status": "raw",
+    "chars": 161
+   },
+   {
+    "file": "gen_T1.0_5.abc",
+    "temperature": 1.0,
+    "status": "raw",
+    "chars": 241
+   },
+   {
+    "file": "gen_T1.2_0.abc",
+    "temperature": 1.2,
+    "status": "raw",
+    "chars": 369
+   },
+   {
+    "file": "gen_T1.2_1.abc",
+    "temperature": 1.2,
+    "status": "repaired:dropped dangling repeat opener",
+    "chars": 713
+   },
+   {
+    "file": "gen_T1.2_2.abc",
+    "temperature": 1.2,
+    "status": "raw",
+    "chars": 421
+   },
+   {
+    "file": "gen_T1.2_3.abc",
+    "temperature": 1.2,
+    "status": "raw",
+    "chars": 402
+   },
+   {
+    "file": "gen_T1.2_4.abc",
+    "temperature": 1.2,
+    "status": "raw",
+    "chars": 189
+   },
+   {
+    "file": "gen_T1.2_5.abc",
+    "temperature": 1.2,
+    "status": "raw",
+    "chars": 203
+   }
+  ],
+  "per_temperature": {
+   "0.6": {
+    "attempts": 6,
+    "valid": 6
+   },
+   "0.8": {
+    "attempts": 6,
+    "valid": 6
+   },
+   "1.0": {
+    "attempts": 6,
+    "valid": 6
+   },
+   "1.2": {
+    "attempts": 6,
+    "valid": 6
+   }
+  },
+  "max_len": 800,
+  "variant_samples": [
+   {
+    "file": "varB_T0.8_0.abc",
+    "temperature": 0.8,
+    "status": "raw",
+    "chars": 188
+   },
+   {
+    "file": "varC_T0.8_0.abc",
+    "temperature": 0.8,
+    "status": "raw",
+    "chars": 188
+   },
+   {
+    "file": "varCNN_T0.8_0.abc",
+    "temperature": 0.8,
+    "status": "raw",
+    "chars": 497
+   }
+  ],
+  "tabla_extension": {
+   "file": "gen_tabla_01.abc",
+   "status": "raw",
+   "seed_rhythm": "6/8 jig, L:1/16 semiquaver ostinato",
+   "note": "Extension demo only: abc encodes pitch+duration, no tabla timbre/bols; model continues the driving rhythm in D major folk idiom. Not a tabla model."
+  },
+  "originality": {
+   "checked": 28,
+   "original": 28
+  }
+ },
+ "experiments": {
+  "smoke": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 5,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 1,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 5,
+   "train": {
+    "loss": 1.0548709269980685,
+    "accuracy": 0.6406284872588316,
+    "perplexity": 2.8716044833690533
+   },
+   "val": {
+    "loss": 1.2958944622123623,
+    "accuracy": 0.5845092961680585,
+    "perplexity": 3.654263113025939
+   },
+   "sec_per_epoch": 19.607939767837525,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\smoke.pt"
+  },
+  "baseline_small_rnn": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "small_rnn",
+    "patience": 99,
+    "params": 41430
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.1045732905309287,
+    "accuracy": 0.6314569683791578,
+    "perplexity": 3.0179364119690457
+   },
+   "val": {
+    "loss": 1.5233718273550585,
+    "accuracy": 0.5431510431766371,
+    "perplexity": 4.587667969682422
+   },
+   "sec_per_epoch": 2.9920537173748016,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\baseline_small_rnn.pt"
+  },
+  "E12_cpu": {
+   "status": "done",
+   "config": {
+    "subset": 0.05,
+    "epochs": 2,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 2,
+   "train": {
+    "loss": 1.6537003342022087,
+    "accuracy": 0.5021270561542824,
+    "perplexity": 5.226283084951273
+   },
+   "val": {
+    "loss": 1.9034209581728614,
+    "accuracy": 0.4428430289790418,
+    "perplexity": 6.708805774524936
+   },
+   "sec_per_epoch": 54.44196891784668,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E12_cpu.pt"
+  },
+  "E12_gpu": {
+   "status": "done",
+   "config": {
+    "subset": 0.05,
+    "epochs": 2,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 2,
+   "train": {
+    "loss": 1.689445750116964,
+    "accuracy": 0.48085649462836205,
+    "perplexity": 5.41647779084359
+   },
+   "val": {
+    "loss": 1.8849009318736107,
+    "accuracy": 0.4379031789180201,
+    "perplexity": 6.5857019765405616
+   },
+   "sec_per_epoch": 3.902830958366394,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E12_gpu.pt"
+  },
+  "var_many2many": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "many2many",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 0.17149036160529965,
+    "accuracy": 0.9426951018858706,
+    "perplexity": 1.1870727012019169
+   },
+   "val": {
+    "loss": 2.8481928679046193,
+    "accuracy": 0.587343631886297,
+    "perplexity": 17.256568746731894
+   },
+   "sec_per_epoch": 9.227148920297623,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\var_many2many.pt"
+  },
+  "var_stateful": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "stateful",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.2271119339125498,
+    "accuracy": 0.5962053571428572,
+    "perplexity": 3.4113630536734214
+   },
+   "val": {
+    "loss": 1.4376516870558071,
+    "accuracy": 0.5486139361766365,
+    "perplexity": 4.210795930940755
+   },
+   "sec_per_epoch": 9.108677595853806,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\var_stateful.pt"
+  },
+  "var_cnn": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "cnn",
+    "patience": 99,
+    "params": 634710
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.2215303921862104,
+    "accuracy": 0.5909881000186838,
+    "perplexity": 3.3923754278529463
+   },
+   "val": {
+    "loss": 1.7269976919848922,
+    "accuracy": 0.5096181785650892,
+    "perplexity": 5.623744324579865
+   },
+   "sec_per_epoch": 3.255847781896591,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\var_cnn.pt"
+  },
+  "E1_sgd": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "sgd",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 3.1579474424802614,
+    "accuracy": 0.1464099478646173,
+    "perplexity": 23.52226554256628
+   },
+   "val": {
+    "loss": 3.207473230838582,
+    "accuracy": 0.15534375545009602,
+    "perplexity": 24.716554228896392
+   },
+   "sec_per_epoch": 8.961980193853378,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E1_sgd.pt"
+  },
+  "E1_sgd_mom": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "sgd_mom",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 2.5516190606652933,
+    "accuracy": 0.3656014618922689,
+    "perplexity": 12.8278560556951
+   },
+   "val": {
+    "loss": 2.626248518870683,
+    "accuracy": 0.33997791596616506,
+    "perplexity": 13.821820221200035
+   },
+   "sec_per_epoch": 9.106232851743698,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E1_sgd_mom.pt"
+  },
+  "E1_nag": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "nag",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 2.598729122756674,
+    "accuracy": 0.34781833577932836,
+    "perplexity": 13.446638144955006
+   },
+   "val": {
+    "loss": 2.672974201015504,
+    "accuracy": 0.3207996745527868,
+    "perplexity": 14.482980494262172
+   },
+   "sec_per_epoch": 9.165825188159943,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E1_nag.pt"
+  },
+  "E1_adagrad": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adagrad",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.2878669023290645,
+    "accuracy": 0.6002139323306136,
+    "perplexity": 3.6250457261196902
+   },
+   "val": {
+    "loss": 1.4845366932024358,
+    "accuracy": 0.5475097343428669,
+    "perplexity": 4.412920403061858
+   },
+   "sec_per_epoch": 9.245364993810654,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E1_adagrad.pt"
+  },
+  "E1_adadelta": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adadelta",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 3.379763760370978,
+    "accuracy": 0.14640994785830805,
+    "perplexity": 29.36383339273207
+   },
+   "val": {
+    "loss": 3.4115032465653146,
+    "accuracy": 0.15534375545009602,
+    "perplexity": 30.31077459696928
+   },
+   "sec_per_epoch": 9.410198539495468,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E1_adadelta.pt"
+  },
+  "E1_rmsprop": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "rmsprop",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 0.7199688191299543,
+    "accuracy": 0.7594598208741665,
+    "perplexity": 2.0543691526276264
+   },
+   "val": {
+    "loss": 1.3216410160217111,
+    "accuracy": 0.6071366304307076,
+    "perplexity": 3.7495694348677886
+   },
+   "sec_per_epoch": 9.272288769483566,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E1_rmsprop.pt"
+  },
+  "E1_adam": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.0365561281752234,
+    "accuracy": 0.6508891562936926,
+    "perplexity": 2.819490311961238
+   },
+   "val": {
+    "loss": 1.3406121915572953,
+    "accuracy": 0.5736037659300068,
+    "perplexity": 3.821382207351028
+   },
+   "sec_per_epoch": 9.336912363767624,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E1_adam.pt"
+  },
+  "E2_clip_on": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.01,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 2.9560092258682893,
+    "accuracy": 0.1464099478666097,
+    "perplexity": 19.221111377239364
+   },
+   "val": {
+    "loss": 3.0028300060180877,
+    "accuracy": 0.15534375545009602,
+    "perplexity": 20.14245962135516
+   },
+   "sec_per_epoch": 9.29644227027893,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E2_clip_on.pt"
+  },
+  "E2_clip_off": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.01,
+    "opt": "adam",
+    "clip": 0.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 2.950826906704162,
+    "accuracy": 0.14640994786860212,
+    "perplexity": 19.121759103343646
+   },
+   "val": {
+    "loss": 2.987248316518917,
+    "accuracy": 0.15534375545009602,
+    "perplexity": 19.831038603364085
+   },
+   "sec_per_epoch": 9.22495111823082,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E2_clip_off.pt"
+  },
+  "E3_d0": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.0,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 0.9911154496211252,
+    "accuracy": 0.6644827740478363,
+    "perplexity": 2.694238083698943
+   },
+   "val": {
+    "loss": 1.3518540979838076,
+    "accuracy": 0.5688382634939498,
+    "perplexity": 3.864584209991781
+   },
+   "sec_per_epoch": 9.327314853668213,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E3_d0.pt"
+  },
+  "E3_d03": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.0432659062216263,
+    "accuracy": 0.6526719258606962,
+    "perplexity": 2.8384720766575273
+   },
+   "val": {
+    "loss": 1.355655146537462,
+    "accuracy": 0.5721508687423885,
+    "perplexity": 3.8793016353180314
+   },
+   "sec_per_epoch": 9.313300609588623,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E3_d03.pt"
+  },
+  "E3_d05": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.5,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.0562927735416616,
+    "accuracy": 0.6444266167995939,
+    "perplexity": 2.8756903683406585
+   },
+   "val": {
+    "loss": 1.3581802112508736,
+    "accuracy": 0.5704073923056868,
+    "perplexity": 3.8891095005260228
+   },
+   "sec_per_epoch": 9.312428891658783,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E3_d05.pt"
+  },
+  "E4_bn": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "batchnorm": true,
+    "params": 1623638
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 0.5136549215510274,
+    "accuracy": 0.824753755019428,
+    "perplexity": 1.6713888400423438
+   },
+   "val": {
+    "loss": 1.4344581309953863,
+    "accuracy": 0.607601557415603,
+    "perplexity": 4.197369967770054
+   },
+   "sec_per_epoch": 9.328289359807968,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E4_bn.pt"
+  },
+  "E6_u128": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     128,
+     128,
+     128
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 494934
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.1618260151934974,
+    "accuracy": 0.619913535656423,
+    "perplexity": 3.195763464130582
+   },
+   "val": {
+    "loss": 1.409589764463179,
+    "accuracy": 0.5545998721415932,
+    "perplexity": 4.094275442220779
+   },
+   "sec_per_epoch": 5.54181244969368,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E6_u128.pt"
+  },
+  "E6_u512": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     512,
+     512,
+     512
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 5845590
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 0.93375243384363,
+    "accuracy": 0.6853857467814967,
+    "perplexity": 2.5440376218806615
+   },
+   "val": {
+    "loss": 1.3419363169402132,
+    "accuracy": 0.5752310105208954,
+    "perplexity": 3.8264455480387767
+   },
+   "sec_per_epoch": 21.654380321502686,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E6_u512.pt"
+  },
+  "E7_s32": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 32,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 0.9551687967042013,
+    "accuracy": 0.6730465106993888,
+    "perplexity": 2.599109266972393
+   },
+   "val": {
+    "loss": 1.3088422495751166,
+    "accuracy": 0.5849186582050088,
+    "perplexity": 3.7018853709136774
+   },
+   "sec_per_epoch": 6.013118475675583,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E7_s32.pt"
+  },
+  "E7_s100": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 100,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.0631413196183876,
+    "accuracy": 0.6410835214626349,
+    "perplexity": 2.8954522592004444
+   },
+   "val": {
+    "loss": 1.383348127495088,
+    "accuracy": 0.5660254320921088,
+    "perplexity": 3.9882324090490378
+   },
+   "sec_per_epoch": 12.130381286144257,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E7_s100.pt"
+  },
+  "E11_b32_lr1e-3": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 32,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.001,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 0.9840670602389738,
+    "accuracy": 0.6720595445037127,
+    "perplexity": 2.675314812231607
+   },
+   "val": {
+    "loss": 1.3172545199572414,
+    "accuracy": 0.5829023071797741,
+    "perplexity": 3.733157983995478
+   },
+   "sec_per_epoch": 14.352110862731934,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E11_b32_lr1e-3.pt"
+  },
+  "E11_b64_lr1e-3": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.001,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.0545681877378932,
+    "accuracy": 0.6505771716866109,
+    "perplexity": 2.8707352675317606
+   },
+   "val": {
+    "loss": 1.3909785014689193,
+    "accuracy": 0.5702911605152973,
+    "perplexity": 4.01878051233506
+   },
+   "sec_per_epoch": 9.273638308048248,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E11_b64_lr1e-3.pt"
+  },
+  "E11_b32_lr3e-3": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 32,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.003,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 0.9588168583282012,
+    "accuracy": 0.6697419441128317,
+    "perplexity": 2.6086082937286066
+   },
+   "val": {
+    "loss": 1.36324738209838,
+    "accuracy": 0.5763933282896955,
+    "perplexity": 3.908866296065746
+   },
+   "sec_per_epoch": 14.309354066848755,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E11_b32_lr3e-3.pt"
+  },
+  "E11_b32_lr1e-2": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 32,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.01,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 1.712643684611716,
+    "accuracy": 0.47608860364642785,
+    "perplexity": 5.543597646183535
+   },
+   "val": {
+    "loss": 1.8397440213110152,
+    "accuracy": 0.4481315743540764,
+    "perplexity": 6.294926687690472
+   },
+   "sec_per_epoch": 14.280363589525223,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E11_b32_lr1e-2.pt"
+  },
+  "E11_b64_lr1e-2": {
+   "status": "done",
+   "config": {
+    "subset": 0.15,
+    "epochs": 8,
+    "batch": 64,
+    "seq_len": 64,
+    "stride": 2,
+    "lr": 0.01,
+    "opt": "adam",
+    "clip": 1.0,
+    "dropout": 0.3,
+    "units": [
+     256,
+     256,
+     256
+    ],
+    "model": "main",
+    "patience": 99,
+    "params": 1623126
+   },
+   "epochs_run": 8,
+   "train": {
+    "loss": 2.9564602708797403,
+    "accuracy": 0.13620359228326445,
+    "perplexity": 19.229782919121455
+   },
+   "val": {
+    "loss": 2.997511284684029,
+    "accuracy": 0.12279886092501134,
+    "perplexity": 20.035611890182977
+   },
+   "sec_per_epoch": 9.221106141805649,
+   "checkpoint": "D:\\4th yr\\DLA CBP\\music-generation-char-rnn\\outputs\\checkpoints\\E11_b64_lr1e-2.pt"
+  },
+  "E5_activation_init": {
+   "status": "done_as_analysis",
+   "note": "No separate training run: 8-epoch budget cannot isolate activation/init effects on the full LSTM. Delivered as written analysis in report Ch.5 (E2 clipping collapse + Char-CNN ReLU evidence + LayerNorm E4). Labeled analysis, not experiment."
+  },
+  "E8_temperature": {
+   "status": "done_reuse_phase7",
+   "note": "Phase 7 generation reused, not re-run.",
+   "validity_rate": 1.0,
+   "attempts": 24,
+   "per_temperature": {
+    "0.6": {
+     "attempts": 6,
+     "valid": 6
+    },
+    "0.8": {
+     "attempts": 6,
+     "valid": 6
+    },
+    "1.0": {
+     "attempts": 6,
+     "valid": 6
+    },
+    "1.2": {
+     "attempts": 6,
+     "valid": 6
+    }
+   }
+  },
+  "E9_stateful": {
+   "status": "done_reuse_phase5",
+   "note": "Phase 5 stateful variant reused (shuffle=False asserted, states reset each epoch).",
+   "val": {
+    "loss": 1.4376516870558071,
+    "accuracy": 0.5486139361766365,
+    "perplexity": 4.210795930940755
+   }
+  },
+  "E10_family": {
+   "status": "done_reuse_phases4_6",
+   "note": "Char-RNN (full budget) vs Char-CNN / many-to-many / small-RNN (reduced budget). Budget mismatch stated in report.",
+   "char_rnn_val_acc": 0.6748997500358872,
+   "char_cnn_val_acc": 0.5096181785650892,
+   "many2many_val_acc": 0.587343631886297,
+   "small_rnn_val_acc": 0.5431510431766371
+  }
+ },
+ "gpu_cpu_timing": {
+  "local_cpu_sec_per_epoch": 54.44196891784668,
+  "local_gpu_sec_per_epoch": 3.902830958366394,
+  "speedup": 13.94935355863694,
+  "config_used": "subset=0.05 epochs=2 batch=64 stride=2 seq_len=64 (identical both)"
+ }
+}

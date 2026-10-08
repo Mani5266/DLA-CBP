@@ -1,0 +1,53 @@
+=== E12_gpu ===
+[E12_gpu] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E12_gpu.pt + results.json. DONE
+=== var_many2many ===
+[var_many2many] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\var_many2many.pt + results.json. DONE
+=== var_stateful ===
+[var_stateful] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\var_stateful.pt + results.json. DONE
+=== var_cnn ===
+[var_cnn] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\var_cnn.pt + results.json. DONE
+=== E1_sgd ===
+[E1_sgd] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_sgd.pt + results.json. DONE
+=== E1_sgd_mom ===
+[E1_sgd_mom] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_sgd_mom.pt + results.json. DONE
+=== E1_nag ===
+[E1_nag] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_nag.pt + results.json. DONE
+=== E1_adagrad ===
+[E1_adagrad] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_adagrad.pt + results.json. DONE
+=== E1_adadelta ===
+[E1_adadelta] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_adadelta.pt + results.json. DONE
+=== E1_rmsprop ===
+[E1_rmsprop] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_rmsprop.pt + results.json. DONE
+=== E1_adam ===
+[E1_adam] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_adam.pt + results.json. DONE
+=== E2_clip_on ===
+[E2_clip_on] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E2_clip_on.pt + results.json. DONE
+=== E2_clip_off ===
+[E2_clip_off] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E2_clip_off.pt + results.json. DONE
+=== E3_d0 ===
+[E3_d0] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E3_d0.pt + results.json. DONE
+=== E3_d03 ===
+[E3_d03] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E3_d03.pt + results.json. DONE
+=== E3_d05 ===
+[E3_d05] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E3_d05.pt + results.json. DONE
+=== E4_bn ===
+[E4_bn] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E4_bn.pt + results.json. DONE
+=== E6_u128 ===
+[E6_u128] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E6_u128.pt + results.json. DONE
+=== E6_u512 ===
+[E6_u512] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E6_u512.pt + results.json. DONE
+=== E7_s32 ===
+[E7_s32] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E7_s32.pt + results.json. DONE
+=== E7_s100 ===
+[E7_s100] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E7_s100.pt + results.json. DONE
+=== E11_b32_lr1e-3 ===
+[E11_b32_lr1e-3] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b32_lr1e-3.pt + results.json. DONE
+=== E11_b64_lr1e-3 ===
+[E11_b64_lr1e-3] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b64_lr1e-3.pt + results.json. DONE
+=== E11_b32_lr3e-3 ===
+[E11_b32_lr3e-3] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b32_lr3e-3.pt + results.json. DONE
+=== E11_b32_lr1e-2 ===
+[E11_b32_lr1e-2] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b32_lr1e-2.pt + results.json. DONE
+=== E11_b64_lr1e-2 ===
+[E11_b64_lr1e-2] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b64_lr1e-2.pt + results.json. DONE
+ALL_EXPERIMENTS_DONE

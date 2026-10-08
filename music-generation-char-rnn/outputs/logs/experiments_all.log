@@ -1,0 +1,299 @@
+=== E12_gpu ===
+[E12_gpu] device=cuda params=1623126 train_win=7052 val_win=17207 cfg={'subset': 0.05, 'epochs': 2, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E12_gpu] ep1/2 4s loss=1.896 acc=0.452 ppl=6.7 | val_loss=2.073 val_acc=0.410 val_ppl=7.9
+[E12_gpu] ep2/2 4s loss=1.668 acc=0.490 ppl=5.3 | val_loss=1.884 val_acc=0.440 val_ppl=6.6
+[E12_gpu] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E12_gpu.pt + results.json. DONE
+=== var_many2many ===
+Traceback (most recent call last):
+  File "D:\4th yr\DLA CBP\music-generation-char-rnn\src\train.py", line 231, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "D:\4th yr\DLA CBP\music-generation-char-rnn\src\train.py", line 140, in main
+    model = build(cfg["model"], V, **kw).to(device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\4th yr\DLA CBP\music-generation-char-rnn\src\model.py", line 91, in build
+    return {"main": CharRNN, "many2many": ManyToManyRNN,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ManyToManyRNN.__init__() got an unexpected keyword argument 'batchnorm'
+ALL_EXPERIMENTS_DONE
+=== E12_gpu ===
+[E12_gpu] device=cuda params=1623126 train_win=7052 val_win=17207 cfg={'subset': 0.05, 'epochs': 2, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E12_gpu] ep1/2 4s loss=1.993 acc=0.432 ppl=7.3 | val_loss=2.164 val_acc=0.388 val_ppl=8.7
+[E12_gpu] ep2/2 4s loss=1.689 acc=0.481 ppl=5.4 | val_loss=1.885 val_acc=0.438 val_ppl=6.6
+[E12_gpu] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E12_gpu.pt + results.json. DONE
+=== var_many2many ===
+[var_many2many] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'many2many', 'patience': 99}
+[var_many2many] ep1/8 9s loss=1.064 acc=0.650 ppl=2.9 | val_loss=1.401 val_acc=0.571 val_ppl=4.1
+[var_many2many] ep2/8 9s loss=0.599 acc=0.813 ppl=1.8 | val_loss=1.502 val_acc=0.599 val_ppl=4.5
+[var_many2many] ep3/8 9s loss=0.338 acc=0.895 ppl=1.4 | val_loss=1.925 val_acc=0.592 val_ppl=6.9
+[var_many2many] ep4/8 9s loss=0.246 acc=0.922 ppl=1.3 | val_loss=2.212 val_acc=0.589 val_ppl=9.1
+[var_many2many] ep5/8 9s loss=0.208 acc=0.932 ppl=1.2 | val_loss=2.492 val_acc=0.593 val_ppl=12.1
+[var_many2many] ep6/8 9s loss=0.189 acc=0.938 ppl=1.2 | val_loss=2.560 val_acc=0.589 val_ppl=12.9
+[var_many2many] ep7/8 9s loss=0.180 acc=0.940 ppl=1.2 | val_loss=2.722 val_acc=0.588 val_ppl=15.2
+[var_many2many] ep8/8 9s loss=0.171 acc=0.943 ppl=1.2 | val_loss=2.848 val_acc=0.587 val_ppl=17.3
+[var_many2many] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\var_many2many.pt + results.json. DONE
+=== var_stateful ===
+[var_stateful] device=cuda params=1623126 train_win=22400 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'stateful', 'patience': 99}
+[var_stateful] ep1/8 9s loss=1.789 acc=0.469 ppl=6.0 | val_loss=1.904 val_acc=0.435 val_ppl=6.7
+[var_stateful] ep2/8 9s loss=1.629 acc=0.506 ppl=5.1 | val_loss=1.755 val_acc=0.476 val_ppl=5.8
+[var_stateful] ep3/8 9s loss=1.533 acc=0.532 ppl=4.6 | val_loss=1.664 val_acc=0.501 val_ppl=5.3
+[var_stateful] ep4/8 9s loss=1.452 acc=0.560 ppl=4.3 | val_loss=1.594 val_acc=0.524 val_ppl=4.9
+[var_stateful] ep5/8 9s loss=1.377 acc=0.571 ppl=4.0 | val_loss=1.532 val_acc=0.535 val_ppl=4.6
+[var_stateful] ep6/8 9s loss=1.324 acc=0.584 ppl=3.8 | val_loss=1.496 val_acc=0.541 val_ppl=4.5
+[var_stateful] ep7/8 9s loss=1.313 acc=0.580 ppl=3.7 | val_loss=1.498 val_acc=0.535 val_ppl=4.5
+[var_stateful] ep8/8 9s loss=1.227 acc=0.596 ppl=3.4 | val_loss=1.438 val_acc=0.549 val_ppl=4.2
+[var_stateful] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\var_stateful.pt + results.json. DONE
+=== var_cnn ===
+[var_cnn] device=cuda params=634710 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'cnn', 'patience': 99}
+[var_cnn] ep1/8 4s loss=1.555 acc=0.514 ppl=4.7 | val_loss=1.732 val_acc=0.480 val_ppl=5.7
+[var_cnn] ep2/8 3s loss=1.444 acc=0.527 ppl=4.2 | val_loss=1.658 val_acc=0.487 val_ppl=5.2
+[var_cnn] ep3/8 3s loss=1.370 acc=0.553 ppl=3.9 | val_loss=1.646 val_acc=0.505 val_ppl=5.2
+[var_cnn] ep4/8 3s loss=1.327 acc=0.555 ppl=3.8 | val_loss=1.599 val_acc=0.504 val_ppl=5.0
+[var_cnn] ep5/8 3s loss=1.301 acc=0.568 ppl=3.7 | val_loss=1.600 val_acc=0.509 val_ppl=5.0
+[var_cnn] ep6/8 3s loss=1.243 acc=0.576 ppl=3.5 | val_loss=1.608 val_acc=0.511 val_ppl=5.0
+[var_cnn] ep7/8 3s loss=1.237 acc=0.577 ppl=3.4 | val_loss=1.631 val_acc=0.505 val_ppl=5.1
+[var_cnn] ep8/8 3s loss=1.222 acc=0.591 ppl=3.4 | val_loss=1.727 val_acc=0.510 val_ppl=5.6
+[var_cnn] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\var_cnn.pt + results.json. DONE
+=== E1_sgd ===
+[E1_sgd] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'sgd', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E1_sgd] ep1/8 9s loss=4.355 acc=0.126 ppl=77.9 | val_loss=4.359 val_acc=0.108 val_ppl=78.2
+[E1_sgd] ep2/8 9s loss=4.245 acc=0.195 ppl=69.8 | val_loss=4.254 val_acc=0.189 val_ppl=70.4
+[E1_sgd] ep3/8 9s loss=4.114 acc=0.146 ppl=61.2 | val_loss=4.127 val_acc=0.155 val_ppl=62.0
+[E1_sgd] ep4/8 9s loss=3.936 acc=0.146 ppl=51.2 | val_loss=3.956 val_acc=0.155 val_ppl=52.3
+[E1_sgd] ep5/8 9s loss=3.673 acc=0.146 ppl=39.4 | val_loss=3.706 val_acc=0.155 val_ppl=40.7
+[E1_sgd] ep6/8 9s loss=3.401 acc=0.146 ppl=30.0 | val_loss=3.448 val_acc=0.155 val_ppl=31.4
+[E1_sgd] ep7/8 9s loss=3.255 acc=0.146 ppl=25.9 | val_loss=3.306 val_acc=0.155 val_ppl=27.3
+[E1_sgd] ep8/8 9s loss=3.158 acc=0.146 ppl=23.5 | val_loss=3.207 val_acc=0.155 val_ppl=24.7
+[E1_sgd] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_sgd.pt + results.json. DONE
+=== E1_sgd_mom ===
+[E1_sgd_mom] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'sgd_mom', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E1_sgd_mom] ep1/8 9s loss=3.097 acc=0.146 ppl=22.1 | val_loss=3.141 val_acc=0.155 val_ppl=23.1
+[E1_sgd_mom] ep2/8 9s loss=2.946 acc=0.202 ppl=19.0 | val_loss=2.988 val_acc=0.192 val_ppl=19.8
+[E1_sgd_mom] ep3/8 9s loss=2.922 acc=0.205 ppl=18.6 | val_loss=2.965 val_acc=0.200 val_ppl=19.4
+[E1_sgd_mom] ep4/8 9s loss=2.887 acc=0.197 ppl=17.9 | val_loss=2.934 val_acc=0.191 val_ppl=18.8
+[E1_sgd_mom] ep5/8 9s loss=2.844 acc=0.200 ppl=17.2 | val_loss=2.892 val_acc=0.193 val_ppl=18.0
+[E1_sgd_mom] ep6/8 9s loss=2.785 acc=0.232 ppl=16.2 | val_loss=2.837 val_acc=0.222 val_ppl=17.1
+[E1_sgd_mom] ep7/8 9s loss=2.687 acc=0.316 ppl=14.7 | val_loss=2.743 val_acc=0.294 val_ppl=15.5
+[E1_sgd_mom] ep8/8 9s loss=2.552 acc=0.366 ppl=12.8 | val_loss=2.626 val_acc=0.340 val_ppl=13.8
+[E1_sgd_mom] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_sgd_mom.pt + results.json. DONE
+=== E1_nag ===
+[E1_nag] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'nag', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E1_nag] ep1/8 9s loss=3.095 acc=0.146 ppl=22.1 | val_loss=3.138 val_acc=0.155 val_ppl=23.0
+[E1_nag] ep2/8 9s loss=2.945 acc=0.208 ppl=19.0 | val_loss=2.983 val_acc=0.203 val_ppl=19.7
+[E1_nag] ep3/8 9s loss=2.923 acc=0.194 ppl=18.6 | val_loss=2.964 val_acc=0.190 val_ppl=19.4
+[E1_nag] ep4/8 9s loss=2.903 acc=0.200 ppl=18.2 | val_loss=2.941 val_acc=0.194 val_ppl=18.9
+[E1_nag] ep5/8 9s loss=2.856 acc=0.201 ppl=17.4 | val_loss=2.905 val_acc=0.193 val_ppl=18.3
+[E1_nag] ep6/8 9s loss=2.817 acc=0.228 ppl=16.7 | val_loss=2.866 val_acc=0.220 val_ppl=17.6
+[E1_nag] ep7/8 9s loss=2.742 acc=0.271 ppl=15.5 | val_loss=2.797 val_acc=0.252 val_ppl=16.4
+[E1_nag] ep8/8 9s loss=2.599 acc=0.348 ppl=13.4 | val_loss=2.673 val_acc=0.321 val_ppl=14.5
+[E1_nag] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_nag.pt + results.json. DONE
+=== E1_adagrad ===
+[E1_adagrad] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adagrad', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E1_adagrad] ep1/8 9s loss=1.760 acc=0.499 ppl=5.8 | val_loss=1.862 val_acc=0.470 val_ppl=6.4
+[E1_adagrad] ep2/8 9s loss=1.600 acc=0.542 ppl=5.0 | val_loss=1.721 val_acc=0.505 val_ppl=5.6
+[E1_adagrad] ep3/8 9s loss=1.523 acc=0.554 ppl=4.6 | val_loss=1.658 val_acc=0.512 val_ppl=5.2
+[E1_adagrad] ep4/8 9s loss=1.463 acc=0.565 ppl=4.3 | val_loss=1.612 val_acc=0.517 val_ppl=5.0
+[E1_adagrad] ep5/8 9s loss=1.413 acc=0.570 ppl=4.1 | val_loss=1.587 val_acc=0.518 val_ppl=4.9
+[E1_adagrad] ep6/8 9s loss=1.357 acc=0.591 ppl=3.9 | val_loss=1.529 val_acc=0.539 val_ppl=4.6
+[E1_adagrad] ep7/8 9s loss=1.323 acc=0.588 ppl=3.8 | val_loss=1.513 val_acc=0.536 val_ppl=4.5
+[E1_adagrad] ep8/8 9s loss=1.288 acc=0.600 ppl=3.6 | val_loss=1.485 val_acc=0.548 val_ppl=4.4
+[E1_adagrad] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_adagrad.pt + results.json. DONE
+=== E1_adadelta ===
+[E1_adadelta] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adadelta', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E1_adadelta] ep1/8 10s loss=4.439 acc=0.132 ppl=84.7 | val_loss=4.437 val_acc=0.141 val_ppl=84.6
+[E1_adadelta] ep2/8 9s loss=4.405 acc=0.146 ppl=81.8 | val_loss=4.404 val_acc=0.155 val_ppl=81.8
+[E1_adadelta] ep3/8 9s loss=4.363 acc=0.146 ppl=78.5 | val_loss=4.363 val_acc=0.155 val_ppl=78.5
+[E1_adadelta] ep4/8 9s loss=4.306 acc=0.146 ppl=74.1 | val_loss=4.308 val_acc=0.155 val_ppl=74.3
+[E1_adadelta] ep5/8 9s loss=4.219 acc=0.146 ppl=67.9 | val_loss=4.223 val_acc=0.155 val_ppl=68.3
+[E1_adadelta] ep6/8 9s loss=4.059 acc=0.146 ppl=57.9 | val_loss=4.069 val_acc=0.155 val_ppl=58.5
+[E1_adadelta] ep7/8 9s loss=3.742 acc=0.146 ppl=42.2 | val_loss=3.761 val_acc=0.155 val_ppl=43.0
+[E1_adadelta] ep8/8 9s loss=3.380 acc=0.146 ppl=29.4 | val_loss=3.412 val_acc=0.155 val_ppl=30.3
+[E1_adadelta] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_adadelta.pt + results.json. DONE
+=== E1_rmsprop ===
+[E1_rmsprop] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'rmsprop', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E1_rmsprop] ep1/8 9s loss=1.505 acc=0.551 ppl=4.5 | val_loss=1.639 val_acc=0.514 val_ppl=5.2
+[E1_rmsprop] ep2/8 9s loss=1.269 acc=0.599 ppl=3.6 | val_loss=1.456 val_acc=0.553 val_ppl=4.3
+[E1_rmsprop] ep3/8 9s loss=1.114 acc=0.634 ppl=3.0 | val_loss=1.362 val_acc=0.571 val_ppl=3.9
+[E1_rmsprop] ep4/8 9s loss=1.044 acc=0.644 ppl=2.8 | val_loss=1.338 val_acc=0.573 val_ppl=3.8
+[E1_rmsprop] ep5/8 9s loss=0.937 acc=0.682 ppl=2.6 | val_loss=1.309 val_acc=0.590 val_ppl=3.7
+[E1_rmsprop] ep6/8 9s loss=0.864 acc=0.708 ppl=2.4 | val_loss=1.292 val_acc=0.593 val_ppl=3.6
+[E1_rmsprop] ep7/8 9s loss=0.792 acc=0.732 ppl=2.2 | val_loss=1.323 val_acc=0.600 val_ppl=3.8
+[E1_rmsprop] ep8/8 9s loss=0.720 acc=0.759 ppl=2.1 | val_loss=1.322 val_acc=0.607 val_ppl=3.7
+[E1_rmsprop] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_rmsprop.pt + results.json. DONE
+=== E1_adam ===
+[E1_adam] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E1_adam] ep1/8 9s loss=1.698 acc=0.481 ppl=5.5 | val_loss=1.815 val_acc=0.449 val_ppl=6.1
+[E1_adam] ep2/8 9s loss=1.490 acc=0.545 ppl=4.4 | val_loss=1.618 val_acc=0.514 val_ppl=5.0
+[E1_adam] ep3/8 9s loss=1.342 acc=0.578 ppl=3.8 | val_loss=1.497 val_acc=0.542 val_ppl=4.5
+[E1_adam] ep4/8 9s loss=1.239 acc=0.602 ppl=3.5 | val_loss=1.430 val_acc=0.554 val_ppl=4.2
+[E1_adam] ep5/8 9s loss=1.175 acc=0.618 ppl=3.2 | val_loss=1.404 val_acc=0.564 val_ppl=4.1
+[E1_adam] ep6/8 9s loss=1.132 acc=0.628 ppl=3.1 | val_loss=1.391 val_acc=0.569 val_ppl=4.0
+[E1_adam] ep7/8 9s loss=1.073 acc=0.639 ppl=2.9 | val_loss=1.356 val_acc=0.571 val_ppl=3.9
+[E1_adam] ep8/8 10s loss=1.037 acc=0.651 ppl=2.8 | val_loss=1.341 val_acc=0.574 val_ppl=3.8
+[E1_adam] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E1_adam.pt + results.json. DONE
+=== E2_clip_on ===
+[E2_clip_on] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.01, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E2_clip_on] ep1/8 9s loss=3.013 acc=0.123 ppl=20.3 | val_loss=3.080 val_acc=0.104 val_ppl=21.8
+[E2_clip_on] ep2/8 9s loss=3.030 acc=0.123 ppl=20.7 | val_loss=3.076 val_acc=0.104 val_ppl=21.7
+[E2_clip_on] ep3/8 9s loss=3.024 acc=0.146 ppl=20.6 | val_loss=3.075 val_acc=0.155 val_ppl=21.6
+[E2_clip_on] ep4/8 9s loss=3.070 acc=0.136 ppl=21.5 | val_loss=3.127 val_acc=0.123 val_ppl=22.8
+[E2_clip_on] ep5/8 9s loss=2.961 acc=0.146 ppl=19.3 | val_loss=3.007 val_acc=0.155 val_ppl=20.2
+[E2_clip_on] ep6/8 9s loss=2.964 acc=0.136 ppl=19.4 | val_loss=3.014 val_acc=0.123 val_ppl=20.4
+[E2_clip_on] ep7/8 9s loss=2.986 acc=0.123 ppl=19.8 | val_loss=3.043 val_acc=0.104 val_ppl=21.0
+[E2_clip_on] ep8/8 9s loss=2.956 acc=0.146 ppl=19.2 | val_loss=3.003 val_acc=0.155 val_ppl=20.1
+[E2_clip_on] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E2_clip_on.pt + results.json. DONE
+=== E2_clip_off ===
+[E2_clip_off] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.01, 'opt': 'adam', 'clip': 0.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E2_clip_off] ep1/8 9s loss=3.006 acc=0.136 ppl=20.2 | val_loss=3.055 val_acc=0.123 val_ppl=21.2
+[E2_clip_off] ep2/8 9s loss=2.962 acc=0.146 ppl=19.3 | val_loss=2.995 val_acc=0.155 val_ppl=20.0
+[E2_clip_off] ep3/8 9s loss=2.989 acc=0.123 ppl=19.9 | val_loss=3.029 val_acc=0.104 val_ppl=20.7
+[E2_clip_off] ep4/8 9s loss=2.964 acc=0.136 ppl=19.4 | val_loss=3.004 val_acc=0.123 val_ppl=20.2
+[E2_clip_off] ep5/8 9s loss=2.947 acc=0.146 ppl=19.0 | val_loss=2.991 val_acc=0.155 val_ppl=19.9
+[E2_clip_off] ep6/8 9s loss=2.959 acc=0.136 ppl=19.3 | val_loss=2.999 val_acc=0.123 val_ppl=20.1
+[E2_clip_off] ep7/8 9s loss=2.956 acc=0.146 ppl=19.2 | val_loss=2.992 val_acc=0.155 val_ppl=19.9
+[E2_clip_off] ep8/8 9s loss=2.951 acc=0.146 ppl=19.1 | val_loss=2.987 val_acc=0.155 val_ppl=19.8
+[E2_clip_off] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E2_clip_off.pt + results.json. DONE
+=== E3_d0 ===
+[E3_d0] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.0, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E3_d0] ep1/8 10s loss=1.661 acc=0.478 ppl=5.3 | val_loss=1.778 val_acc=0.448 val_ppl=5.9
+[E3_d0] ep2/8 9s loss=1.527 acc=0.517 ppl=4.6 | val_loss=1.659 val_acc=0.482 val_ppl=5.3
+[E3_d0] ep3/8 9s loss=1.332 acc=0.574 ppl=3.8 | val_loss=1.502 val_acc=0.533 val_ppl=4.5
+[E3_d0] ep4/8 9s loss=1.239 acc=0.597 ppl=3.5 | val_loss=1.429 val_acc=0.548 val_ppl=4.2
+[E3_d0] ep5/8 9s loss=1.164 acc=0.614 ppl=3.2 | val_loss=1.398 val_acc=0.560 val_ppl=4.0
+[E3_d0] ep6/8 9s loss=1.098 acc=0.632 ppl=3.0 | val_loss=1.358 val_acc=0.567 val_ppl=3.9
+[E3_d0] ep7/8 9s loss=1.047 acc=0.650 ppl=2.8 | val_loss=1.339 val_acc=0.576 val_ppl=3.8
+[E3_d0] ep8/8 9s loss=0.991 acc=0.664 ppl=2.7 | val_loss=1.352 val_acc=0.569 val_ppl=3.9
+[E3_d0] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E3_d0.pt + results.json. DONE
+=== E3_d03 ===
+[E3_d03] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E3_d03] ep1/8 9s loss=1.683 acc=0.496 ppl=5.4 | val_loss=1.803 val_acc=0.461 val_ppl=6.1
+[E3_d03] ep2/8 9s loss=1.447 acc=0.558 ppl=4.3 | val_loss=1.586 val_acc=0.524 val_ppl=4.9
+[E3_d03] ep3/8 9s loss=1.346 acc=0.575 ppl=3.8 | val_loss=1.520 val_acc=0.537 val_ppl=4.6
+[E3_d03] ep4/8 9s loss=1.251 acc=0.595 ppl=3.5 | val_loss=1.447 val_acc=0.550 val_ppl=4.3
+[E3_d03] ep5/8 9s loss=1.185 acc=0.611 ppl=3.3 | val_loss=1.405 val_acc=0.556 val_ppl=4.1
+[E3_d03] ep6/8 9s loss=1.137 acc=0.621 ppl=3.1 | val_loss=1.385 val_acc=0.562 val_ppl=4.0
+[E3_d03] ep7/8 9s loss=1.080 acc=0.640 ppl=2.9 | val_loss=1.361 val_acc=0.572 val_ppl=3.9
+[E3_d03] ep8/8 9s loss=1.043 acc=0.653 ppl=2.8 | val_loss=1.356 val_acc=0.572 val_ppl=3.9
+[E3_d03] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E3_d03.pt + results.json. DONE
+=== E3_d05 ===
+[E3_d05] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.5, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E3_d05] ep1/8 9s loss=1.645 acc=0.488 ppl=5.2 | val_loss=1.761 val_acc=0.459 val_ppl=5.8
+[E3_d05] ep2/8 9s loss=1.478 acc=0.557 ppl=4.4 | val_loss=1.614 val_acc=0.520 val_ppl=5.0
+[E3_d05] ep3/8 9s loss=1.377 acc=0.574 ppl=4.0 | val_loss=1.548 val_acc=0.530 val_ppl=4.7
+[E3_d05] ep4/8 9s loss=1.263 acc=0.594 ppl=3.5 | val_loss=1.458 val_acc=0.553 val_ppl=4.3
+[E3_d05] ep5/8 9s loss=1.209 acc=0.609 ppl=3.4 | val_loss=1.438 val_acc=0.561 val_ppl=4.2
+[E3_d05] ep6/8 9s loss=1.152 acc=0.619 ppl=3.2 | val_loss=1.401 val_acc=0.562 val_ppl=4.1
+[E3_d05] ep7/8 9s loss=1.096 acc=0.632 ppl=3.0 | val_loss=1.391 val_acc=0.566 val_ppl=4.0
+[E3_d05] ep8/8 9s loss=1.056 acc=0.644 ppl=2.9 | val_loss=1.358 val_acc=0.570 val_ppl=3.9
+[E3_d05] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E3_d05.pt + results.json. DONE
+=== E4_bn ===
+[E4_bn] device=cuda params=1623638 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99, 'batchnorm': True}
+[E4_bn] ep1/8 9s loss=1.263 acc=0.598 ppl=3.5 | val_loss=1.471 val_acc=0.545 val_ppl=4.4
+[E4_bn] ep2/8 9s loss=1.100 acc=0.631 ppl=3.0 | val_loss=1.357 val_acc=0.570 val_ppl=3.9
+[E4_bn] ep3/8 9s loss=0.978 acc=0.672 ppl=2.7 | val_loss=1.341 val_acc=0.587 val_ppl=3.8
+[E4_bn] ep4/8 9s loss=0.866 acc=0.707 ppl=2.4 | val_loss=1.344 val_acc=0.598 val_ppl=3.8
+[E4_bn] ep5/8 9s loss=0.766 acc=0.740 ppl=2.2 | val_loss=1.313 val_acc=0.598 val_ppl=3.7
+[E4_bn] ep6/8 9s loss=0.681 acc=0.768 ppl=2.0 | val_loss=1.340 val_acc=0.607 val_ppl=3.8
+[E4_bn] ep7/8 9s loss=0.581 acc=0.806 ppl=1.8 | val_loss=1.399 val_acc=0.616 val_ppl=4.0
+[E4_bn] ep8/8 9s loss=0.514 acc=0.825 ppl=1.7 | val_loss=1.434 val_acc=0.608 val_ppl=4.2
+[E4_bn] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E4_bn.pt + results.json. DONE
+=== E6_u128 ===
+[E6_u128] device=cuda params=494934 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (128, 128, 128), 'model': 'main', 'patience': 99}
+[E6_u128] ep1/8 6s loss=1.699 acc=0.486 ppl=5.5 | val_loss=1.803 val_acc=0.458 val_ppl=6.1
+[E6_u128] ep2/8 5s loss=1.554 acc=0.508 ppl=4.7 | val_loss=1.678 val_acc=0.475 val_ppl=5.4
+[E6_u128] ep3/8 5s loss=1.418 acc=0.548 ppl=4.1 | val_loss=1.569 val_acc=0.510 val_ppl=4.8
+[E6_u128] ep4/8 6s loss=1.344 acc=0.569 ppl=3.8 | val_loss=1.519 val_acc=0.528 val_ppl=4.6
+[E6_u128] ep5/8 5s loss=1.289 acc=0.577 ppl=3.6 | val_loss=1.488 val_acc=0.523 val_ppl=4.4
+[E6_u128] ep6/8 6s loss=1.243 acc=0.593 ppl=3.5 | val_loss=1.454 val_acc=0.539 val_ppl=4.3
+[E6_u128] ep7/8 5s loss=1.189 acc=0.607 ppl=3.3 | val_loss=1.422 val_acc=0.552 val_ppl=4.1
+[E6_u128] ep8/8 6s loss=1.162 acc=0.620 ppl=3.2 | val_loss=1.410 val_acc=0.555 val_ppl=4.1
+[E6_u128] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E6_u128.pt + results.json. DONE
+=== E6_u512 ===
+[E6_u512] device=cuda params=5845590 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (512, 512, 512), 'model': 'main', 'patience': 99}
+[E6_u512] ep1/8 22s loss=1.588 acc=0.525 ppl=4.9 | val_loss=1.714 val_acc=0.493 val_ppl=5.6
+[E6_u512] ep2/8 22s loss=1.424 acc=0.564 ppl=4.2 | val_loss=1.568 val_acc=0.531 val_ppl=4.8
+[E6_u512] ep3/8 22s loss=1.296 acc=0.593 ppl=3.7 | val_loss=1.494 val_acc=0.542 val_ppl=4.5
+[E6_u512] ep4/8 22s loss=1.208 acc=0.602 ppl=3.3 | val_loss=1.430 val_acc=0.552 val_ppl=4.2
+[E6_u512] ep5/8 22s loss=1.101 acc=0.634 ppl=3.0 | val_loss=1.380 val_acc=0.563 val_ppl=4.0
+[E6_u512] ep6/8 22s loss=1.038 acc=0.652 ppl=2.8 | val_loss=1.354 val_acc=0.578 val_ppl=3.9
+[E6_u512] ep7/8 22s loss=1.002 acc=0.658 ppl=2.7 | val_loss=1.350 val_acc=0.570 val_ppl=3.9
+[E6_u512] ep8/8 22s loss=0.934 acc=0.685 ppl=2.5 | val_loss=1.342 val_acc=0.575 val_ppl=3.8
+[E6_u512] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E6_u512.pt + results.json. DONE
+=== E7_s32 ===
+[E7_s32] device=cuda params=1623126 train_win=24661 val_win=18871 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 32, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E7_s32] ep1/8 6s loss=1.605 acc=0.518 ppl=5.0 | val_loss=1.728 val_acc=0.491 val_ppl=5.6
+[E7_s32] ep2/8 6s loss=1.380 acc=0.576 ppl=4.0 | val_loss=1.530 val_acc=0.535 val_ppl=4.6
+[E7_s32] ep3/8 6s loss=1.248 acc=0.596 ppl=3.5 | val_loss=1.422 val_acc=0.555 val_ppl=4.1
+[E7_s32] ep4/8 6s loss=1.176 acc=0.611 ppl=3.2 | val_loss=1.378 val_acc=0.558 val_ppl=4.0
+[E7_s32] ep5/8 6s loss=1.120 acc=0.625 ppl=3.1 | val_loss=1.360 val_acc=0.569 val_ppl=3.9
+[E7_s32] ep6/8 6s loss=1.050 acc=0.640 ppl=2.9 | val_loss=1.321 val_acc=0.579 val_ppl=3.7
+[E7_s32] ep7/8 6s loss=0.997 acc=0.659 ppl=2.7 | val_loss=1.307 val_acc=0.590 val_ppl=3.7
+[E7_s32] ep8/8 6s loss=0.955 acc=0.673 ppl=2.6 | val_loss=1.309 val_acc=0.585 val_ppl=3.7
+[E7_s32] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E7_s32.pt + results.json. DONE
+=== E7_s100 ===
+[E7_s100] device=cuda params=1623126 train_win=19935 val_win=15335 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 100, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E7_s100] ep1/8 12s loss=1.667 acc=0.492 ppl=5.3 | val_loss=1.786 val_acc=0.463 val_ppl=6.0
+[E7_s100] ep2/8 12s loss=1.518 acc=0.523 ppl=4.6 | val_loss=1.655 val_acc=0.487 val_ppl=5.2
+[E7_s100] ep3/8 12s loss=1.386 acc=0.566 ppl=4.0 | val_loss=1.558 val_acc=0.520 val_ppl=4.7
+[E7_s100] ep4/8 12s loss=1.289 acc=0.587 ppl=3.6 | val_loss=1.486 val_acc=0.537 val_ppl=4.4
+[E7_s100] ep5/8 12s loss=1.195 acc=0.607 ppl=3.3 | val_loss=1.434 val_acc=0.548 val_ppl=4.2
+[E7_s100] ep6/8 12s loss=1.155 acc=0.616 ppl=3.2 | val_loss=1.412 val_acc=0.553 val_ppl=4.1
+[E7_s100] ep7/8 12s loss=1.090 acc=0.636 ppl=3.0 | val_loss=1.385 val_acc=0.560 val_ppl=4.0
+[E7_s100] ep8/8 12s loss=1.063 acc=0.641 ppl=2.9 | val_loss=1.383 val_acc=0.566 val_ppl=4.0
+[E7_s100] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E7_s100.pt + results.json. DONE
+=== E11_b32_lr1e-3 ===
+[E11_b32_lr1e-3] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 32, 'seq_len': 64, 'stride': 2, 'lr': 0.001, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E11_b32_lr1e-3] ep1/8 14s loss=1.638 acc=0.506 ppl=5.1 | val_loss=1.755 val_acc=0.473 val_ppl=5.8
+[E11_b32_lr1e-3] ep2/8 14s loss=1.520 acc=0.545 ppl=4.6 | val_loss=1.663 val_acc=0.508 val_ppl=5.3
+[E11_b32_lr1e-3] ep3/8 14s loss=1.317 acc=0.587 ppl=3.7 | val_loss=1.478 val_acc=0.543 val_ppl=4.4
+[E11_b32_lr1e-3] ep4/8 15s loss=1.215 acc=0.599 ppl=3.4 | val_loss=1.421 val_acc=0.551 val_ppl=4.1
+[E11_b32_lr1e-3] ep5/8 14s loss=1.145 acc=0.627 ppl=3.1 | val_loss=1.357 val_acc=0.570 val_ppl=3.9
+[E11_b32_lr1e-3] ep6/8 14s loss=1.083 acc=0.641 ppl=3.0 | val_loss=1.334 val_acc=0.580 val_ppl=3.8
+[E11_b32_lr1e-3] ep7/8 14s loss=1.024 acc=0.658 ppl=2.8 | val_loss=1.322 val_acc=0.586 val_ppl=3.8
+[E11_b32_lr1e-3] ep8/8 14s loss=0.984 acc=0.672 ppl=2.7 | val_loss=1.317 val_acc=0.583 val_ppl=3.7
+[E11_b32_lr1e-3] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b32_lr1e-3.pt + results.json. DONE
+=== E11_b64_lr1e-3 ===
+[E11_b64_lr1e-3] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.001, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E11_b64_lr1e-3] ep1/8 9s loss=1.726 acc=0.489 ppl=5.6 | val_loss=1.831 val_acc=0.465 val_ppl=6.2
+[E11_b64_lr1e-3] ep2/8 9s loss=1.533 acc=0.537 ppl=4.6 | val_loss=1.658 val_acc=0.504 val_ppl=5.2
+[E11_b64_lr1e-3] ep3/8 9s loss=1.357 acc=0.572 ppl=3.9 | val_loss=1.524 val_acc=0.529 val_ppl=4.6
+[E11_b64_lr1e-3] ep4/8 9s loss=1.266 acc=0.590 ppl=3.5 | val_loss=1.456 val_acc=0.545 val_ppl=4.3
+[E11_b64_lr1e-3] ep5/8 9s loss=1.219 acc=0.603 ppl=3.4 | val_loss=1.440 val_acc=0.553 val_ppl=4.2
+[E11_b64_lr1e-3] ep6/8 9s loss=1.145 acc=0.624 ppl=3.1 | val_loss=1.410 val_acc=0.557 val_ppl=4.1
+[E11_b64_lr1e-3] ep7/8 9s loss=1.099 acc=0.638 ppl=3.0 | val_loss=1.386 val_acc=0.569 val_ppl=4.0
+[E11_b64_lr1e-3] ep8/8 9s loss=1.055 acc=0.651 ppl=2.9 | val_loss=1.391 val_acc=0.570 val_ppl=4.0
+[E11_b64_lr1e-3] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b64_lr1e-3.pt + results.json. DONE
+=== E11_b32_lr3e-3 ===
+[E11_b32_lr3e-3] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 32, 'seq_len': 64, 'stride': 2, 'lr': 0.003, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E11_b32_lr3e-3] ep1/8 14s loss=1.549 acc=0.540 ppl=4.7 | val_loss=1.675 val_acc=0.511 val_ppl=5.3
+[E11_b32_lr3e-3] ep2/8 14s loss=1.341 acc=0.574 ppl=3.8 | val_loss=1.507 val_acc=0.534 val_ppl=4.5
+[E11_b32_lr3e-3] ep3/8 14s loss=1.238 acc=0.592 ppl=3.4 | val_loss=1.437 val_acc=0.547 val_ppl=4.2
+[E11_b32_lr3e-3] ep4/8 15s loss=1.164 acc=0.611 ppl=3.2 | val_loss=1.405 val_acc=0.555 val_ppl=4.1
+[E11_b32_lr3e-3] ep5/8 14s loss=1.097 acc=0.634 ppl=3.0 | val_loss=1.376 val_acc=0.569 val_ppl=4.0
+[E11_b32_lr3e-3] ep6/8 14s loss=1.052 acc=0.641 ppl=2.9 | val_loss=1.362 val_acc=0.562 val_ppl=3.9
+[E11_b32_lr3e-3] ep7/8 14s loss=1.008 acc=0.648 ppl=2.7 | val_loss=1.379 val_acc=0.571 val_ppl=4.0
+[E11_b32_lr3e-3] ep8/8 14s loss=0.959 acc=0.670 ppl=2.6 | val_loss=1.363 val_acc=0.576 val_ppl=3.9
+[E11_b32_lr3e-3] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b32_lr3e-3.pt + results.json. DONE
+=== E11_b32_lr1e-2 ===
+[E11_b32_lr1e-2] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 32, 'seq_len': 64, 'stride': 2, 'lr': 0.01, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E11_b32_lr1e-2] ep1/8 15s loss=2.102 acc=0.409 ppl=8.2 | val_loss=2.199 val_acc=0.376 val_ppl=9.0
+[E11_b32_lr1e-2] ep2/8 14s loss=1.845 acc=0.451 ppl=6.3 | val_loss=1.966 val_acc=0.417 val_ppl=7.1
+[E11_b32_lr1e-2] ep3/8 14s loss=1.805 acc=0.456 ppl=6.1 | val_loss=1.915 val_acc=0.422 val_ppl=6.8
+[E11_b32_lr1e-2] ep4/8 15s loss=1.801 acc=0.452 ppl=6.1 | val_loss=1.925 val_acc=0.423 val_ppl=6.9
+[E11_b32_lr1e-2] ep5/8 14s loss=1.780 acc=0.452 ppl=5.9 | val_loss=1.903 val_acc=0.417 val_ppl=6.7
+[E11_b32_lr1e-2] ep6/8 14s loss=1.826 acc=0.456 ppl=6.2 | val_loss=1.955 val_acc=0.427 val_ppl=7.1
+[E11_b32_lr1e-2] ep7/8 14s loss=1.798 acc=0.453 ppl=6.0 | val_loss=1.920 val_acc=0.429 val_ppl=6.8
+[E11_b32_lr1e-2] ep8/8 14s loss=1.713 acc=0.476 ppl=5.5 | val_loss=1.840 val_acc=0.448 val_ppl=6.3
+[E11_b32_lr1e-2] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b32_lr1e-2.pt + results.json. DONE
+=== E11_b64_lr1e-2 ===
+[E11_b64_lr1e-2] device=cuda params=1623126 train_win=22437 val_win=17207 cfg={'subset': 0.15, 'epochs': 8, 'batch': 64, 'seq_len': 64, 'stride': 2, 'lr': 0.01, 'opt': 'adam', 'clip': 1.0, 'dropout': 0.3, 'units': (256, 256, 256), 'model': 'main', 'patience': 99}
+[E11_b64_lr1e-2] ep1/8 9s loss=2.999 acc=0.146 ppl=20.1 | val_loss=3.032 val_acc=0.155 val_ppl=20.7
+[E11_b64_lr1e-2] ep2/8 9s loss=2.990 acc=0.136 ppl=19.9 | val_loss=3.031 val_acc=0.123 val_ppl=20.7
+[E11_b64_lr1e-2] ep3/8 9s loss=2.992 acc=0.146 ppl=19.9 | val_loss=3.035 val_acc=0.155 val_ppl=20.8
+[E11_b64_lr1e-2] ep4/8 9s loss=2.976 acc=0.136 ppl=19.6 | val_loss=3.018 val_acc=0.123 val_ppl=20.5
+[E11_b64_lr1e-2] ep5/8 9s loss=2.978 acc=0.136 ppl=19.6 | val_loss=3.022 val_acc=0.123 val_ppl=20.5
+[E11_b64_lr1e-2] ep6/8 9s loss=2.946 acc=0.146 ppl=19.0 | val_loss=2.990 val_acc=0.155 val_ppl=19.9
+[E11_b64_lr1e-2] ep7/8 9s loss=2.962 acc=0.123 ppl=19.3 | val_loss=3.005 val_acc=0.104 val_ppl=20.2
+[E11_b64_lr1e-2] ep8/8 9s loss=2.956 acc=0.136 ppl=19.2 | val_loss=2.998 val_acc=0.123 val_ppl=20.0
+[E11_b64_lr1e-2] saved D:\4th yr\DLA CBP\music-generation-char-rnn\outputs\checkpoints\E11_b64_lr1e-2.pt + results.json. DONE
+ALL_EXPERIMENTS_DONE

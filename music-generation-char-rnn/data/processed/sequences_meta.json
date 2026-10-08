@@ -1,0 +1,28 @@
+{
+ "seq_len": 64,
+ "seed": 42,
+ "tunes_total": 1034,
+ "tunes_train": 930,
+ "tunes_val": 104,
+ "chars_total": 390475,
+ "vocab_size": 86,
+ "dropped_no_key": 0,
+ "train_windows": 287862,
+ "val_windows": 34370,
+ "source_files": [
+  "ashover.abc",
+  "hpps.abc",
+  "jigs.abc",
+  "morris.abc",
+  "playford.abc",
+  "reelsa-c.abc",
+  "reelsd-g.abc",
+  "reelsh-l.abc",
+  "reelsm-q.abc",
+  "reelsr-t.abc",
+  "reelsu-z.abc",
+  "slip.abc",
+  "waltzes.abc",
+  "xmas.abc"
+ ]
+}
